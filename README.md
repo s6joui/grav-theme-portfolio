@@ -1,6 +1,8 @@
 # Portfolio Theme
 
-The **Portfolio** Theme is for [Grav CMS](http://github.com/getgrav/grav).  This README.md file should be modified to describe the features, installation, configuration, and general usage of this theme.
+The **Portfolio** Theme is for [Grav CMS](http://github.com/getgrav/grav). A demo can be found [here](http://www.joeyck.tech).
+
+![](thumbnail.jpg)
 
 ## Description
 
