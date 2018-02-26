@@ -2,7 +2,9 @@
 
 # Portfolio Theme
 
-**Portfolio**  is a simple and minimalistic responsive theme for [Grav CMS](http://github.com/getgrav/grav). It's designed for portfolios and personal webpages. A demo can be found [here](http://www.joeyck.tech).
+**Portfolio**  is a simple and minimalistic responsive theme for [Grav CMS](http://github.com/getgrav/grav). It's designed for portfolios and personal webpages.
+
+## A demo can be found [here](http://www.joeyck.tech).
 
 # Installation
 
