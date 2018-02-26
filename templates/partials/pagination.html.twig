@@ -1,0 +1,16 @@
+{% set pagination = pagination|default(page.collection.params.pagination) %}
+{% set base_url = base_url|default(page.url) %}
+
+{% if pagination|length > 1 %}
+
+    {% if pagination.hasPrev %}
+        {% set url =  (base_url ~ pagination.params ~ pagination.prevUrl)|replace({'//':'/'}) %}
+        <a class="pagination prev"  rel="prev" href="{{ url }}">&#9664;</a>
+    {% endif %}
+
+    {% if pagination.hasNext %}
+        {% set url = (base_url ~ pagination.params ~ pagination.nextUrl)|replace({'//':'/'}) %}
+        <a class="pagination next" rel="next" href="{{ url }}">&#9654;</a>
+    {% endif %}
+
+{% endif %}

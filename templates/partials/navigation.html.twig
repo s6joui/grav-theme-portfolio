@@ -1,0 +1,8 @@
+<ul class="navigation">
+    {% for page in pages.children.visible %}
+        {% set current_page = (page.active or page.activeChild) ? 'selected' : '' %}
+        <li class="nav-item {{ current_page }}">
+            <a href="{{ page.url }}">{{ page.menu }}</a>
+        </li>
+    {% endfor %}
+</ul>

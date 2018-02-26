@@ -1,0 +1,45 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        <meta charset="utf-8" />
+        <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+        {% include 'partials/metadata.html.twig' %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png') }}" />
+        <link rel="canonical" href="{{ page.url(true, true) }}" />
+
+        <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600,800" rel="stylesheet">
+
+        {% block stylesheets %}
+            {% do assets.addCss('theme://css/style.css', 104) %}
+        {% endblock %}
+        {{ assets.css() }}
+
+    {% endblock head %}
+</head>
+<body>
+    {% block header %}
+    <div id="header">
+    </div>
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    <div id="menu">
+        {% block header_navigation %}
+        {% include 'partials/navigation.html.twig' %}
+        {% endblock %}
+        <div class="line"></div>
+    </div>
+    <div id="footer">
+        {% block footer %}
+        <p>© Joey Cumeras Khan 2018</p>
+        {% endblock %}
+    </div>
+</body>
+</html>

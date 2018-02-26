@@ -1,0 +1,45 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+	<div id="content" class="border">
+
+	{% set cp = page.parent().children() %}
+	{% set next = cp.nextSibling(page.path).url %}
+	{% set prev = cp.prevSibling(page.path).url %}
+
+	{% if next %}
+        <a class="pagination prev"  rel="prev" href="{{ next }}">&#9664;</a>
+    {% endif %}
+
+    {% if prev %}
+        <a class="pagination next" rel="next" href="{{ prev }}">&#9654;</a>
+    {% endif %}
+
+	{% set image = page.media.images|first %}
+
+	<ul class="categories">
+	{% for cat in page.taxonomy.category %}
+		<span class="category">{{cat}}</span>
+	{% endfor %}
+	</ul>
+
+	<div class="post{% if image %} left {% endif %} with-tags">
+
+		<h1 class="page-title">{{page.title}}</h1>
+		{{ page.content }}
+
+	</div>
+
+	<ul class="links">
+	{% for link in page.header.links %}
+		<li><a class="entry-link" target="_blank" href="{{link.url}}">{{link.title}}</a></li>
+	{% endfor %}
+	</ul>
+
+	{% if image %}
+		<div class="right-picture" style="background-image:url('{{ image.url }}')"></div>
+	{% endif %}
+
+	</div>
+
+{% endblock %}

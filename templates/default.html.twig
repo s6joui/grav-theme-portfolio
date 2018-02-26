@@ -1,0 +1,17 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+<div id="content" class="border">
+
+	{% set image = page.media.images|first %}
+
+	<div class="post{% if image %} left{% endif %}">
+		{{ page.content }}
+	</div>
+
+	{% if image %}
+		<div class="right-picture" style="background-image:url('{{ image.url }}')"></div>
+	{% endif %}
+
+</div>
+{% endblock %}
