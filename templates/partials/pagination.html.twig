@@ -6,11 +6,13 @@
     {% if pagination.hasPrev %}
         {% set url =  (base_url ~ pagination.params ~ pagination.prevUrl)|replace({'//':'/'}) %}
         <a class="pagination prev"  rel="prev" href="{{ url }}">&#9664;</a>
+        <a class="mobile-pagination prev"  rel="prev" href="{{ url }}">&#9664; Previous</a>
     {% endif %}
 
     {% if pagination.hasNext %}
         {% set url = (base_url ~ pagination.params ~ pagination.nextUrl)|replace({'//':'/'}) %}
         <a class="pagination next" rel="next" href="{{ url }}">&#9654;</a>
+        <a class="mobile-pagination next"  rel="next" href="{{ url }}">Next &#9654;</a>
     {% endif %}
 
 {% endif %}

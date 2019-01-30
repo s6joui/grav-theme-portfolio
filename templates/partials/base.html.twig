@@ -11,8 +11,7 @@
         <link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png') }}" />
         <link rel="canonical" href="{{ page.url(true, true) }}" />
 
-        <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600,800" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Roboto+Mono:400,700" rel="stylesheet">
 
         {% block stylesheets %}
             {% do assets.addCss('theme://css/style.css', 104) %}
@@ -22,24 +21,20 @@
     {% endblock head %}
 </head>
 <body>
-    {% block header %}
-    <div id="header">
-    </div>
-    {% endblock %}
+	<div id="main">
+		{% block header %}
+		<div id="header">
+		</div>
+		{% endblock %}
 
-    {% block content %}
-    {% endblock %}
+		{% block content %}
+		{% endblock %}
 
-    <div id="menu">
-        {% block header_navigation %}
-        {% include 'partials/navigation.html.twig' %}
-        {% endblock %}
-        <div class="line"></div>
-    </div>
-    <div id="footer">
-        {% block footer %}
-        <p>© Joey Cumeras Khan 2018</p>
-        {% endblock %}
-    </div>
+		<div id="menu">
+			{% block header_navigation %}
+			{% include 'partials/navigation.html.twig' %}
+			{% endblock %}
+		</div>
+	</div>
 </body>
 </html>
