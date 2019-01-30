@@ -64,6 +64,17 @@ $contentWidth: 66.666%;
     margin:0;
 }
 
+html, body {
+    height: 100%;
+}
+
+#main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 body{
     font-family: 'Open Sans', sans-serif;
 }
@@ -71,38 +82,17 @@ body{
 /** Layout **/
 
 #header {
-    box-sizing: border-box;
-    padding: 35px 0;
-    width:1024px;
-    height:70px;
-    margin:0 auto;
-
-    #logo{
-      float:left;
-      img{
-          height: 40px;
-      }
-    }
-
-    #social{
-      float:right;
-      img{
-          height:20px;
-          width:20px;
-      }
-    }
-
+	height:0;
 }
 
 #content {
     box-sizing: border-box;
     width:1024px;
     margin:0 auto;
-    margin-top: 20px;
     margin-bottom: 20px;
     position: relative;
     clear: both;
-    height: 600px;
+    height: 550px;
 
     &.border{
         border:1px solid black;
@@ -229,7 +219,7 @@ body{
             display: block;
             width: (100% / 3);
             float:left;
-            height: 300px;
+            height: 275px;
             overflow: hidden;
             font-size: 1.2em;
             text-decoration: none;
@@ -243,7 +233,7 @@ body{
             }
 
             .info{
-                margin-top:120px;
+                margin-top:110px;
             }
 
             .title{
@@ -394,6 +384,20 @@ body{
     box-sizing: border-box;
 }
 
+.mobile-pagination{
+	padding:10px;
+	background:white;
+	text-align:center;
+	width:100%;
+	box-sizing:border-box;
+	color:black;
+	text-decoration:none;
+	text-transform: uppercase;
+	display: none;
+	box-sizing: border-box;
+	border: 1px 1px 0 1px solid black;
+}
+
 @media screen and (max-width: $break-small),screen and (max-height: 415px){
 
     #menu .navigation{
@@ -411,10 +415,18 @@ body{
     #footer{
         margin-bottom: 64px;
     }
+	
+	.pagination{
+		display: none;
+	}
+	
+	.mobile-pagination{
+		display: block;
+	}
 
 }
 
-@media screen and (max-height: 756px){
+@media screen and (max-height: 740px){
 
     #header{
         padding: 0;
@@ -480,10 +492,12 @@ body{
 
 @media screen and (max-width: $break-large) {
 
-    #header{
-        height: 0px;
-        padding: 0;
-    }
+	#main {
+		position: relative !important;
+		transform: none !important;
+		top:0;
+		left:0;
+	}
 
     #header,#footer,#menu,#content,.post,.grid,.entry,.links{
         width:100% !important;
@@ -508,7 +522,8 @@ body{
         margin-bottom: 0px !important;
         border:none !important;
         height: auto !important;
-
+		padding-bottom: 60px;
+		
         .post{
             padding: 10px 20px 20px 20px !important;
             height: auto !important;

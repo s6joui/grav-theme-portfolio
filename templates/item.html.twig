@@ -1,7 +1,7 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-	<div id="content">
+	<div id="content" class="border">
 
 	{% set cp = page.parent().children() %}
 	{% set next = cp.nextSibling(page.path).url %}
@@ -17,29 +17,28 @@
 
 	{% set image = page.media.images|first %}
 
-	{% if image %}
-		<div class="right-picture" style="background-image:url('{{ image.url }}')"></div>
-	{% endif %}
-	
+	<ul class="categories">
+	{% for cat in page.taxonomy.category %}
+		<span class="category">{{cat}}</span>
+	{% endfor %}
+	</ul>
+
 	<div class="post{% if image %} left {% endif %} with-tags">
-		<ul class="categories">
-		{% for cat in page.taxonomy.category %}
-			<span class="category">{{cat}}</span>
-		{% endfor %}
-		</ul>
-		
+
 		<h1 class="page-title">{{page.title}}</h1>
 		{{ page.content }}
 
-
-		{% if page.header.links %} <h4>Links</h4> {% endif %}
-		<ul class="links">
-		{% for link in page.header.links %}
-			<li><a class="entry-link" target="_blank" href="{{link.url}}">{{link.title}}</a></li>
-		{% endfor %}
-		</ul>
-		
 	</div>
+
+	<ul class="links">
+	{% for link in page.header.links %}
+		<li><a class="entry-link" target="_blank" href="{{link.url}}">{{link.title}}</a></li>
+	{% endfor %}
+	</ul>
+
+	{% if image %}
+		<div class="right-picture" style="background-image:url('{{ image.url }}')"></div>
+	{% endif %}
 
 	</div>
 

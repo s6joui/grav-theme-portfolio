@@ -4,13 +4,13 @@
 
 {% block content %}
 <div id="content">
-	
-	{% set vcenter = count(collection) <= 3 %}
-	<div class="grid {% if vcenter %}vcenter{% endif %}">
+
+	<div class="grid">
 		{% set ext_links = page.header.child_type == "external" %}
+		{% set vcenter = count(collection) <= 3 %}
 
 		{% for child in collection %}
-			<a class="entry" href="{{child.url}}" {% if ext_links %}target='_blank'{% endif %} style="background-color:{{ child.header.banner_color }}">
+			<a class="entry {% if vcenter %}vcenter{% endif %}" href="{{child.url}}" {% if ext_links %}target='_blank'{% endif %} style="background-color:{{ child.header.banner_color }}">
 				<div class="info">
 					<h2 class="title">{{child.title}}</h2>
 					<p class="tags">{{ child.taxonomy.category|join(', ') }}</p>

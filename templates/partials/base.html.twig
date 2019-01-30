@@ -11,7 +11,8 @@
         <link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png') }}" />
         <link rel="canonical" href="{{ page.url(true, true) }}" />
 
-		<link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Roboto+Mono:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600,800" rel="stylesheet">
 
         {% block stylesheets %}
             {% do assets.addCss('theme://css/style.css', 104) %}
@@ -34,6 +35,7 @@
 			{% block header_navigation %}
 			{% include 'partials/navigation.html.twig' %}
 			{% endblock %}
+			<div class="line"></div>
 		</div>
 	</div>
 </body>
