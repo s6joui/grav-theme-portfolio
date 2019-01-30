@@ -13,7 +13,7 @@
 
 ### Manual
 
-To install this theme, just download the zip version of this repository and unzip it under `/your/site/grav/user/themes`. Then, rename the folder to `portfolio`.
+To install this theme manually download the zip version of this repository and unzip it under `/your/site/grav/user/themes`. Then, rename the folder to `portfolio`.
 
 You should now have all the theme files under
 
