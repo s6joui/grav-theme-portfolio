@@ -18,14 +18,14 @@
 	{% set image = page.media.images|first %}
 
 	<ul class="categories">
-	{% for cat in page.taxonomy.category %}
-		<span class="category">{{cat}}</span>
-	{% endfor %}
+		{% for cat in page.taxonomy.category %}
+			<span class="category"><a href="category/n:{{cat}}">{{cat}}</a></span>
+		{% endfor %}
 	</ul>
 
 	<div class="post{% if image %} left {% endif %} with-tags">
 
-		<h1 class="page-title">{{page.title}}</h1>
+		<h1>{{page.title}}</h1>
 		{{ page.content }}
 
 	</div>

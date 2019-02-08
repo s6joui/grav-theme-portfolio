@@ -8,20 +8,15 @@
 
 # Installation
 
-### GPM
-``bin/gpm install portfolio``
-
-### Manual
-
-To install this theme manually download the zip version of this repository and unzip it under `/your/site/grav/user/themes`. Then, rename the folder to `portfolio`.
+To install this theme, just download the zip version of this repository and unzip it under `/your/site/grav/user/themes`. Then, rename the folder to `portfolio`.
 
 You should now have all the theme files under
 
     /your/site/grav/user/themes/portfolio
 
-# Manual Setup
+# Setup
 
-If you don't use the Admin plugin and you want to set this theme as the default theme, you can do so by following these steps:
+If you want to set this theme as the default theme, you can do so by following these steps:
 
 * Navigate to `/your/site/grav/user/config`.
 * Open the **system.yaml** file.
@@ -31,15 +26,15 @@ If you don't use the Admin plugin and you want to set this theme as the default 
 
 Once this is done, you should be able to see the new theme on the frontend.
 
-# How to create a portfolio page
+# Usage
 
-### Admin plugin
+## Admin plugin
 
 If you have the [admin plugin](https://github.com/getgrav/grav-plugin-admin) you can simply create a page with the `portfolio` template and add child pages with the `item` template.
 
-### Manual usage
+## Manual usage
 
-If you don't have the Admin plugin:
+To create a portfolio page that contains different items:
 
 1. Create a directory in `user/pages`, and create a `portfolio.md` file inside with the following structure:
   ```

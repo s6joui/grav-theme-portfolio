@@ -1,11 +1,11 @@
 {% extends 'partials/base.html.twig' %}
 
-{% set collection = page.collection().visible() %}
+{% set collection = taxonomy.findTaxonomy({'category':uri.param('n')}).visible() %}
 
 {% block content %}
 <div id="content">
-	
 	{% set vcenter = count(collection) <= 3 %}
+	<h2 class="page-title {% if vcenter %}vcenter{% endif %}">{{uri.param('n')}} projects</h2>
 	<div class="grid {% if vcenter %}vcenter{% endif %}">
 		{% set ext_links = page.header.child_type == "external" %}
 
