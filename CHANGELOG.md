@@ -3,6 +3,7 @@
 
 1. [](#new)
 	* Added full-screen image viewer
+	* Added support for viewing items by category via the new categories page type
 
 # v0.2.0
 ##  01/30/2019
