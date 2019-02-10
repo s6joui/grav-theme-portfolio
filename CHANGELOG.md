@@ -1,11 +1,11 @@
 # v0.3.1
-## 10/02/2019
+## 02/10/2019
 
 1. [](#bugfix)
 	* Fixed layout errors
 
 # v0.3.0
-## 10/02/2019
+## 02/10/2019
 
 1. [](#new)
 	* Added full-screen image viewer
