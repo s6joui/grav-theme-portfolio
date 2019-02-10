@@ -1,44 +1,60 @@
 {% extends 'partials/base.html.twig' %}
 
-{% block content %}
-	<div id="content" class="border">
+{% block javascripts %}
+	{% do assets.addJs('theme://js/theme.js') %}
+{% endblock %}
 
-	{% set cp = page.parent().children() %}
+{% block content %}
+	<div id="content">
+
+	{% set cp = page.parent().children().visible() %}
 	{% set next = cp.nextSibling(page.path).url %}
 	{% set prev = cp.prevSibling(page.path).url %}
 
-	{% if next %}
-        <a class="pagination prev"  rel="prev" href="{{ next }}">&#9664;</a>
-    {% endif %}
+	<div id="pagination">
+		{% if next %}
+			<a class="pagination prev"  rel="prev" href="{{ next }}">&#9664;</a>
+		{% endif %}
 
-    {% if prev %}
-        <a class="pagination next" rel="next" href="{{ prev }}">&#9654;</a>
-    {% endif %}
+		{% if prev %}
+			<a class="pagination next" rel="next" href="{{ prev }}">&#9654;</a>
+		{% endif %}
+	</div>
+	
+	{% set mainImage = page.media.images|first %}
 
-	{% set image = page.media.images|first %}
-
-	<ul class="categories">
+	{% if mainImage %}
+		<div class="right-picture" style="background-image:url('{{ mainImage.url }}')"></div>
+		{% for img in page.media.images if img != mainImage  %}
+			<div class="full-picture" style="background-image:url('{{ img.url }}')"></div>
+		{% endfor %}
+		{% if page.media.images|length > 1 %}
+			<div id="viewer-pagination" class="hidden">
+				<a id="prev-image-button" class="pagination image-viewer prev" rel="prev">&#9664;</a>
+				<a id="next-image-button" class="pagination image-viewer next" rel="next">&#9654;</a>
+			</div>
+		{% endif %}
+	{% endif %}
+	
+	<div class="post{% if mainImage %} left {% endif %} with-tags">
+		<ul class="categories">
 		{% for cat in page.taxonomy.category %}
 			<span class="category"><a href="category/n:{{cat}}">{{cat}}</a></span>
 		{% endfor %}
-	</ul>
-
-	<div class="post{% if image %} left {% endif %} with-tags">
-
-		<h1>{{page.title}}</h1>
+		</ul>
+		
+		<h1 class="post-title">{{page.title}}</h1>
 		{{ page.content }}
 
+
+		{% if page.header.links %} <h4>Links</h4> {% endif %}
+		<ul class="links">
+		{% for link in page.header.links %}
+			<li><a class="entry-link" target="_blank" href="{{link.url}}">{{link.title}}</a></li>
+		{% endfor %}
+		</ul>
+		
 	</div>
-
-	<ul class="links">
-	{% for link in page.header.links %}
-		<li><a class="entry-link" target="_blank" href="{{link.url}}">{{link.title}}</a></li>
-	{% endfor %}
-	</ul>
-
-	{% if image %}
-		<div class="right-picture" style="background-image:url('{{ image.url }}')"></div>
-	{% endif %}
 
 	</div>
 

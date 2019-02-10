@@ -1,7 +1,11 @@
 {% extends 'partials/base.html.twig' %}
 
+{% block javascripts %}
+	{% do assets.addJs('theme://js/theme.js') %}
+{% endblock %}
+
 {% block content %}
-<div id="content" class="border">
+<div id="content">
 
 	{% set image = page.media.images|first %}
 

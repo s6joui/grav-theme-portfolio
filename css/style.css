@@ -15,23 +15,7 @@
     opacity: 0.1;
   }
 }
-@keyframes panBackground {
-  from {
-    background-position: left;
-  }
-  to {
-    background-position: right;
-  }
-}
-@keyframes shrink {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 33.334%;
-  }
-}
-/** Setup **/
+/** Page Setup **/
 * {
   padding: 0;
   margin: 0;
@@ -41,20 +25,20 @@ html, body {
   height: 100%;
 }
 
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #ffffff;
+  transition: background-color 0.4s;
+}
+body.image-view {
+  background-color: #000000;
+}
+
 #main {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-body {
-  font-family: "Open Sans", sans-serif;
-  background-color: white;
-  transition: background-color 0.7s;
-}
-body.image-view {
-  background-color: black;
 }
 
 .hidden {
@@ -82,6 +66,7 @@ body.image-view {
   margin: 10px 10px 10px 30px;
 }
 #content .page-title {
+  font-family: "Patua One", cursive;
   position: absolute;
   top: -35px;
   color: black;
@@ -95,13 +80,18 @@ body.image-view {
 #content .post {
   width: 100%;
   box-sizing: border-box;
-  padding: 30px 40px;
+  padding: 10px 40px;
   overflow-y: auto;
   height: 100%;
+  background: white;
+  border: 1px solid black;
 }
 #content .post h1, #content .post h2, #content .post h3, #content .post h4, #content .post h5, #content .post h6 {
-  /*font-family: 'Patua One', cursive;*/
-  margin-bottom: 10px;
+  margin: 20px 0;
+  font-family: "Patua One", cursive;
+  background-color: beige;
+  color: black;
+  padding: 10px 0 10px 10px;
 }
 #content .post p {
   margin-bottom: 10px;
@@ -113,13 +103,13 @@ body.image-view {
   font-weight: 600;
 }
 #content .post.with-tags {
-  padding-top: 40px !important;
-  height: 554px;
+  padding-top: 0 !important;
 }
 #content .post.left {
   width: 66.666%;
 }
 #content .right-picture {
+  box-sizing: border-box;
   background-image: url("");
   background-repeat: no-repeat;
   background-position: center;
@@ -129,57 +119,46 @@ body.image-view {
   position: absolute;
   top: 0;
   right: 0;
-  border-left: 1px solid black;
-  transition: width 0.7s, box-shadow 0.5s, background-size 0.7s, height 0.7s;
   cursor: pointer;
-}
-#content .right-picture:hover {
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5) inset;
+  transition: background-color 0.4s, width 0.4s;
+  border-style: solid;
+  border-width: 1px 1px 1px 0;
+  border-color: black;
 }
 #content .right-picture.fullsize {
   width: 100%;
+  height: 118%;
+  background-color: #000000;
   background-size: contain;
-  background-color: black;
-  height: 123%;
 }
 #content .categories {
-  position: absolute;
-  top: 0;
-  left: 40px;
   height: 30px;
 }
 #content .categories .category a {
-  background: black;
-  color: white;
   padding: 6px 10px;
   font-size: 0.8em;
   margin: 0;
-  text-decoration: none;
   position: relative;
   top: 2px;
+  background: black;
+  color: white;
+  text-decoration: none;
 }
 #content .links {
-  width: 66.666%;
-  display: table;
-  table-layout: fixed;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-  text-transform: uppercase;
-  border-collapse: collapse;
+  width: 100%;
   box-sizing: border-box;
+  background: white;
+  overflow: hidden;
+  margin-bottom: 30px;
 }
 #content .links li {
-  display: table-cell;
-  border-top: 1px solid black;
-  border-right: 1px solid black;
+  float: left;
+  margin: 0 10px 0 30px;
 }
 #content .links a {
   display: block;
-  padding: 10px;
-  text-decoration: none;
   color: black;
+  font-weight: bold;
 }
 #content .grid {
   width: 1024px;
@@ -203,7 +182,6 @@ body.image-view {
   text-decoration: none;
   color: white;
   position: relative;
-  background-color: #f1553f;
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 #content .grid .entry h1, #content .grid .entry h2, #content .grid .entry h3, #content .grid .entry h4, #content .grid .entry h5, #content .grid .entry h6, #content .grid .entry p {
@@ -215,16 +193,13 @@ body.image-view {
 #content .grid .entry .title {
   text-transform: uppercase;
   border-bottom: 1px solid white;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -2px;
   text-shadow: 3px 2px 5px rgba(0, 0, 0, 0.5);
 }
 #content .grid .entry .tags {
   padding-top: 5px;
   font-size: 0.8em;
-}
-#content .grid .entry:hover {
-  transform: scale(0.94);
 }
 #content .grid .entry .image {
   background-repeat: no-repeat;
@@ -255,6 +230,11 @@ body.image-view {
   color: black;
   font-weight: 800;
   position: absolute;
+  text-shadow: 2px 2px 8px black;
+  transition: transform 0.5s;
+  cursor: pointer;
+  user-select: none;
+  -moz-user-select: none;
 }
 #content .pagination.next {
   position: absolute;
@@ -266,25 +246,32 @@ body.image-view {
   left: -60px;
   top: 43.5%;
 }
+#content .pagination:hover {
+  transform: scale(0.85);
+}
+#content .pagination.image-viewer {
+  color: white;
+}
 
 #menu {
   width: 1024px;
   margin: 0 auto;
+  position: relative;
 }
 #menu .navigation {
   list-style: none;
   display: table;
   table-layout: fixed;
   width: 100%;
+  font-family: "Patua One", cursive;
 }
 #menu .nav-item {
-  font-family: "Patua One", cursive;
-  height: 105px;
+  font-weight: 600;
   background: transparent;
   transition: transform 0.5s, background 0.3s;
   display: table-cell;
-  border-left: 16px solid transparent;
-  border-right: 16px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
 }
 #menu .nav-item:first-of-type {
   border-left: 0;
@@ -293,7 +280,6 @@ body.image-view {
   border-right: 0;
 }
 #menu .nav-item a {
-  border: 3px solid black;
   box-sizing: border-box;
   display: inline-block;
   text-decoration: none;
@@ -301,15 +287,21 @@ body.image-view {
   text-transform: uppercase;
   text-align: center;
   width: 100%;
-  height: 80px;
+  height: 100%;
   font-size: 2.2em;
   line-height: 75px;
+  height: 80px;
   transition: color 0.3s;
   background: white;
+  border: 2px solid black;
 }
 #menu .nav-item a:hover {
   background: black;
   color: white;
+}
+#menu .nav-item.selected a {
+  background: black !important;
+  color: white !important;
 }
 #menu .nav-item:last-of-type {
   margin-right: 0px !important;
@@ -319,13 +311,8 @@ body.image-view {
   height: 3px;
   background: black;
   position: relative;
-  top: -66px;
+  top: -40px;
   z-index: -10;
-}
-
-.nav-item.selected a {
-  background: black !important;
-  color: white !important;
 }
 
 #footer {
@@ -343,11 +330,12 @@ body.image-view {
   width: 100%;
   box-sizing: border-box;
   color: black;
-  text-decoration: none;
   text-transform: uppercase;
+  margin-top: 10px;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: black;
   display: none;
-  box-sizing: border-box;
-  border: 1px 1px 0 1px solid black;
 }
 
 @media screen and (max-width: 530px), screen and (max-height: 415px) {
@@ -362,6 +350,28 @@ body.image-view {
     margin-bottom: 64px;
   }
 
+  #content {
+    width: 100% !important;
+  }
+  #content .grid {
+    width: 100% !important;
+  }
+  #content .grid.vcenter {
+    transform: none;
+  }
+  #content .post.left {
+    padding: 0 14px !important;
+  }
+  #content .post p:last-of-type {
+    margin-bottom: 20px;
+  }
+  #content .right-picture {
+    box-shadow: none;
+  }
+  #content .links a {
+    padding: 0 5px 0 0;
+  }
+
   .pagination {
     display: none;
   }
@@ -370,25 +380,14 @@ body.image-view {
     display: block;
   }
 }
-@media screen and (max-height: 740px) {
-  #header {
-    padding: 0;
-    height: 0;
+@media screen and (max-width: 360px) {
+  #menu .navigation .nav-item a {
+    font-size: 0.8em !important;
   }
-
+}
+@media screen and (max-height: 740px) {
   #footer {
     padding-bottom: 0 !important;
-  }
-
-  .nav-item {
-    height: 75px !important;
-  }
-  .nav-item a {
-    line-height: 66px !important;
-  }
-
-  .line {
-    top: -40px !important;
   }
 
   #content {
@@ -415,19 +414,6 @@ body.image-view {
   .entry .info {
     margin-top: 95px !important;
   }
-
-  .post {
-    height: 100% !important;
-  }
-  .post.with-tags {
-    height: 454px !important;
-  }
-}
-@media screen and (max-height: 900px) {
-  #header {
-    padding: 0;
-    height: 0;
-  }
 }
 @media screen and (max-width: 1023px) {
   #main {
@@ -435,10 +421,19 @@ body.image-view {
     transform: none !important;
     top: 0;
     left: 0;
+    height: 100%;
   }
 
-  #header, #footer, #menu, #content, .post, .grid, .entry, .links {
+  #footer, #menu, .post, .entry, .links {
     width: 100% !important;
+  }
+
+  .grid {
+    width: 80% !important;
+  }
+
+  #content {
+    width: 80%;
   }
 
   .grid.vcenter {
@@ -463,6 +458,7 @@ body.image-view {
     padding-bottom: 60px;
   }
   #content .page-title {
+    font-family: "Patua One", cursive;
     position: relative;
     width: 100%;
     top: 0;
@@ -477,27 +473,33 @@ body.image-view {
   #content .post.with-tags {
     height: auto !important;
   }
+  #content .pagination {
+    position: fixed !important;
+  }
+  #content .pagination.next {
+    right: 15px !important;
+    top: 39.5% !important;
+  }
+  #content .pagination.prev {
+    left: 15px !important;
+    top: 39.5% !important;
+  }
+  #content.fullheight {
+    position: static !important;
+  }
 
   .categories {
     left: 20px !important;
   }
 
-  .links {
-    position: static !important;
-  }
-
   .right-picture {
-    height: 280px !important;
+    height: 200px !important;
     width: 100% !important;
     position: static !important;
   }
   .right-picture.fullsize {
-    position: absolute !important;
     height: 100% !important;
-  }
-
-  .line {
-    visibility: hidden;
+    position: absolute !important;
   }
 
   #menu .navigation {
@@ -511,8 +513,12 @@ body.image-view {
     border: 0 !important;
   }
   #menu .navigation .nav-item a {
+    box-shadow: none;
     border: 0 !important;
     font-size: 1.75em;
+  }
+  #menu .line {
+    visibility: hidden;
   }
 
   #footer {
