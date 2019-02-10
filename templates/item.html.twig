@@ -46,8 +46,6 @@
 		<h1 class="post-title">{{page.title}}</h1>
 		{{ page.content }}
 
-
-		{% if page.header.links %} <h4>Links</h4> {% endif %}
 		<ul class="links">
 		{% for link in page.header.links %}
 			<li><a class="entry-link" target="_blank" href="{{link.url}}">{{link.title}}</a></li>

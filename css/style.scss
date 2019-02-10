@@ -109,11 +109,8 @@ body{
 		border: 1px solid black;
 
         h1,h2,h3,h4,h5,h6{
-			margin: 20px 0;
-			font-family: 'Patua One', cursive;
-			background-color: beige;
+			margin: 15px 0 10px 0;
 			color: black;
-			padding: 10px 0 10px 10px;
         }
 
         p{
@@ -121,7 +118,7 @@ body{
         }
 
         p:last-of-type{
-            margin-bottom: 30px;
+            margin-bottom: 60px;
         }
 
         strong{
@@ -176,21 +173,33 @@ body{
     }
 
     .links{
-        width: 100%;
-        box-sizing: border-box;
-		background: rgba(255,255,255,1);
-		overflow:hidden;
-		margin-bottom: 30px;
+		display:table;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: $content-width;
+		box-sizing: border-box;
+		background: white;
+		overflow: hidden;
+		padding: 10px;
+		table-layout: fixed;
+        text-align: center;
+        text-transform: uppercase;
+		border-left: 1px solid black;
+		border-collapse: collapse;
 
         li {
-			float:left;
-			margin: 0 10px 0 30px;
+            display: table-cell;
+            border-top: 1px solid black;
+            border-right: 1px solid black;
         }
+		
         a {
             display: block;
+            padding: 10px;
+            text-decoration: none;
             color: black;
-			font-weight:bold;
-        }
+		}
     }
 
     .grid{
@@ -274,7 +283,6 @@ body{
         color: black;
         font-weight: 800;
         position: absolute;
-		text-shadow: 2px 2px 8px black;
 		transition: transform 0.5s;
 		cursor: pointer;
 		user-select: none;
@@ -293,7 +301,7 @@ body{
         }
 		
 		&:hover{
-			transform: scale(0.85);
+			transform: scale(0.90);
 		}
 		
 		&.image-viewer{
@@ -430,6 +438,8 @@ body{
 		}
 		
 		.post{
+			border:none;
+			
 			&.left{
 				padding:0 14px !important;
 			}
@@ -442,12 +452,7 @@ body{
 		.right-picture{
 			box-shadow:none;		
 		}
-		
-		.links{
-			a{
-				padding:0 5px 0 0;
-			}
-		}
+	
 		
 	}
 	
@@ -485,6 +490,7 @@ body{
         margin-bottom: 10px !important;
         height:500px;
         width: 800px;
+
     }
 
     #menu{
@@ -625,6 +631,12 @@ body{
 			visibility: hidden;
 		}
     }
+	
+	.links{
+		position: static !important;
+		border-bottom: 1px solid black;
+		margin-bottom:15px;
+	}
 	
     #footer{
         margin-bottom: 80px;

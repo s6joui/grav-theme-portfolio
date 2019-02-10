@@ -87,17 +87,14 @@ body.image-view {
   border: 1px solid black;
 }
 #content .post h1, #content .post h2, #content .post h3, #content .post h4, #content .post h5, #content .post h6 {
-  margin: 20px 0;
-  font-family: "Patua One", cursive;
-  background-color: beige;
+  margin: 15px 0 10px 0;
   color: black;
-  padding: 10px 0 10px 10px;
 }
 #content .post p {
   margin-bottom: 10px;
 }
 #content .post p:last-of-type {
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 #content .post strong {
   font-weight: 600;
@@ -145,20 +142,31 @@ body.image-view {
   text-decoration: none;
 }
 #content .links {
-  width: 100%;
+  display: table;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 66.666%;
   box-sizing: border-box;
   background: white;
   overflow: hidden;
-  margin-bottom: 30px;
+  padding: 10px;
+  table-layout: fixed;
+  text-align: center;
+  text-transform: uppercase;
+  border-left: 1px solid black;
+  border-collapse: collapse;
 }
 #content .links li {
-  float: left;
-  margin: 0 10px 0 30px;
+  display: table-cell;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
 }
 #content .links a {
   display: block;
+  padding: 10px;
+  text-decoration: none;
   color: black;
-  font-weight: bold;
 }
 #content .grid {
   width: 1024px;
@@ -230,7 +238,6 @@ body.image-view {
   color: black;
   font-weight: 800;
   position: absolute;
-  text-shadow: 2px 2px 8px black;
   transition: transform 0.5s;
   cursor: pointer;
   user-select: none;
@@ -247,7 +254,7 @@ body.image-view {
   top: 43.5%;
 }
 #content .pagination:hover {
-  transform: scale(0.85);
+  transform: scale(0.9);
 }
 #content .pagination.image-viewer {
   color: white;
@@ -359,6 +366,9 @@ body.image-view {
   #content .grid.vcenter {
     transform: none;
   }
+  #content .post {
+    border: none;
+  }
   #content .post.left {
     padding: 0 14px !important;
   }
@@ -367,9 +377,6 @@ body.image-view {
   }
   #content .right-picture {
     box-shadow: none;
-  }
-  #content .links a {
-    padding: 0 5px 0 0;
   }
 
   .pagination {
@@ -519,6 +526,12 @@ body.image-view {
   }
   #menu .line {
     visibility: hidden;
+  }
+
+  .links {
+    position: static !important;
+    border-bottom: 1px solid black;
+    margin-bottom: 15px;
   }
 
   #footer {
