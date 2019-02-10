@@ -1,4 +1,4 @@
-![Portfolio](http://www.joeyck.tech/user/pages/02.projects/03-portfolio-template/portfolio.jpg)
+![Portfolio](http://www.joeyck.tech/user/pages/02.projects/03.portfolio-template/portfolio.jpg)
 
 # Portfolio Theme
 
