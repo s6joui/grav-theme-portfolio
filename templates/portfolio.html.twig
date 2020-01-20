@@ -17,7 +17,7 @@
 				</div>
 
 				{% set blog_image = child.media.images|first %}
-				<div class="image" style="background-image: url({{ blog_image.url }});animation-duration:{{ random(['1.5s', '1s', '0.5s','2s']) }}"></div>
+				<div class="image" style="background-image: url('{{ blog_image.url }}');animation-duration:{{ random(['1.5s', '1s', '0.5s','2s']) }}"></div>
 			</a>
 		{% endfor %}
 	</div>
